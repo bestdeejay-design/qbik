@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Qbik — Генератор глянцевых журналов</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23C0392B' d='M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z'/></svg>" type="image/svg+xml">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <svg style="display:none">
+    <defs>
+      <symbol id="icon-home" viewBox="0 0 24 24"><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></symbol>
+      <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24"><path fill="currentColor" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.44-.44-.07-.9-.1-1.36-.1z"/></symbol>
+      <symbol id="icon-book" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"/></symbol>
+      <symbol id="icon-layers" viewBox="0 0 24 24"><path fill="currentColor" d="M12 16l-6-4 6-4 6 4-6 4zm0 4l-6-4 6-4 6 4-6 4zM12 2L6 6l6 4 6-4-6-4z"/></symbol>
+      <symbol id="icon-image" viewBox="0 0 24 24"><path fill="currentColor" d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></symbol>
+      <symbol id="icon-text" viewBox="0 0 24 24"><path fill="currentColor" d="M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z"/></symbol>
+      <symbol id="icon-layout" viewBox="0 0 24 24"><path fill="currentColor" d="M3 15h8v-8H3v8zm0 2h8v6H3v-6zm10-10v8h8V7h-8zm0 10h8v6h-8v-6z"/></symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24"><path fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></symbol>
+      <symbol id="icon-edit" viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></symbol>
+      <symbol id="icon-trash" viewBox="0 0 24 24"><path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></symbol>
+      <symbol id="icon-eye" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></symbol>
+      <symbol id="icon-grid" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"/></symbol>
+      <symbol id="icon-palette" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10c1.38 0 2.5-1.12 2.5-2.5 0-.61-.23-1.16-.6-1.59-.38-.43-.6-1-.6-1.61 0-1.38 1.12-2.5 2.5-2.5H17c3.31 0 6-2.69 6-6 0-4.96-4.49-9-11-9zM5.5 11.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5S7 9.17 7 10s-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S8.67 5.5 9.5 5.5 11 6.17 11 7s-.67 1.5-1.5 1.5zm5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4 3c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></symbol>
+      <symbol id="icon-magic" viewBox="0 0 24 24"><path fill="currentColor" d="M7.5 5.6L5 7l1.4-2.5L5 2l2.5 1.4L10 2 8.6 4.5 10 7 7.5 5.6zm12 9.8L17 17l1.4-2.5L17 12l2.5 1.4L22 12l-1.4 2.5L22 17l-2.5-1.4zM22 1l-1.4 2.5L22 6l-2.5-1.4L17 6l1.4-2.5L17 1l2.5 1.4L22 1zm-8.34 4.66l-2.87 2.87-1.41-1.41 2.87-2.87 1.41 1.41zm-7.07 7.07l-1.41 1.41 5.66 5.66 1.41-1.41-5.66-5.66zm5.66 5.66l-5.66-5.66 1.41-1.41 5.66 5.66-1.41 1.41zm2.87-9.9L7.1 14.9l2.83 2.83 7.07-7.07-2.83-2.83z"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- Splash -->
+  <div id="splash" class="splash">
+    <div class="splash-content">
+      <div class="splash-logo">
+        <svg class="splash-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      </div>
+      <h1>Qbik</h1>
+      <p class="tagline">Генератор глянцевых журналов</p>
+    </div>
+  </div>
+
+  <!-- Landing -->
+  <div id="landing" class="landing">
+    <div class="landing-content">
+      <div class="landing-header">
+        <div class="logo-badge">
+          <svg class="logo-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          <span>Qbik</span>
+        </div>
+        <button class="theme-toggle-small" onclick="toggleTheme()">
+          <svg class="icon-sm"><use href="#icon-sun"/></svg>
+        </button>
+      </div>
+
+      <div class="landing-hero">
+        <h1>Создайте свой<br>глянцевый журнал</h1>
+        <p>Собирайте контент, выбирайте шаблоны, получайте готовый PDF для печати. Школьный журнал, городской, корпоративный — любой формат.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature"><svg class="icon"><use href="#icon-layout"/></svg><span>Шаблоны</span></div>
+        <div class="feature"><svg class="icon"><use href="#icon-image"/></svg><span>Фото</span></div>
+        <div class="feature"><svg class="icon"><use href="#icon-text"/></svg><span>Тексты</span></div>
+        <div class="feature"><svg class="icon"><use href="#icon-download"/></svg><span>PDF</span></div>
+      </div>
+
+      <button class="btn-primary" onclick="openApp()" id="enterBtn">
+        Создать журнал
+        <svg class="icon"><use href="#icon-arrow"/></svg>
+      </button>
+
+      <p class="note">Qbik v1.0 &bull; Работает офлайн</p>
+    </div>
+  </div>
+
+  <!-- App -->
+  <div id="app" class="page hidden">
+    <div class="phone-frame">
+      <div class="phone-header">
+        <span class="status-bar"></span>
+        <button class="theme-toggle-small" onclick="toggleTheme()">
+          <svg class="icon-sm"><use href="#icon-sun"/></svg>
+        </button>
+      </div>
+
+      <div class="app-header">
+        <button class="back-btn hidden" onclick="goBack()" id="backBtn">
+          <svg class="icon"><use href="#icon-arrow-left"/></svg>
+        </button>
+        <h2 id="appTitle">Мои журналы</h2>
+        <div class="header-actions">
+          <span id="headerTime" class="header-time"></span>
+        </div>
+      </div>
+
+      <div class="app-content" id="content">
+      </div>
+
+      <div class="bottom-nav" id="bottomNav">
+        <button class="nav-item active" onclick="showPage('projects', this)">
+          <svg class="icon-nav"><use href="#icon-book"/></svg>
+          <span>Проекты</span>
+        </button>
+        <button class="nav-item" onclick="showPage('editor', this)">
+          <svg class="icon-nav"><use href="#icon-edit"/></svg>
+          <span>Редактор</span>
+        </button>
+        <button class="nav-item" onclick="showPage('preview', this)">
+          <svg class="icon-nav"><use href="#icon-eye"/></svg>
+          <span>Превью</span>
+        </button>
+        <button class="nav-item" onclick="showPage('export', this)">
+          <svg class="icon-nav"><use href="#icon-download"/></svg>
+          <span>Экспорт</span>
+        </button>
+      </div>
+    </div>
+
+    <button class="btn-exit" onclick="closeApp()">На главную</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
